@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import Rating from '../components/Rating';
-import { listProductDetails } from '../actions/productAction';
-import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Loader from '../components/Loader';
+import { listProductDetails } from '../actions/productAction';
+
 const ProductScreen = ({ match }) => {
   const dispatch = useDispatch();
+
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
+
   useEffect(() => {
     dispatch(listProductDetails(match.params.id));
   }, [dispatch, match]);
@@ -67,7 +70,7 @@ const ProductScreen = ({ match }) => {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Button
-                    className='w-100'
+                    className='btn-block'
                     type='button'
                     disabled={product.countInStock === 0}
                   >

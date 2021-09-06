@@ -5,11 +5,14 @@ import {
   productListReducer,
   productDetailsReducer,
 } from './reducers/productReducers';
+
 const reducer = combineReducers({
   productList: productListReducer,
-  productDetail: productDetailsReducer,
+  productDetails: productDetailsReducer,
 });
+
 const initialState = {};
+
 const middleware = [thunk];
 
 const store = createStore(
