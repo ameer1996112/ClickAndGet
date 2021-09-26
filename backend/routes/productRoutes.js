@@ -1,14 +1,11 @@
-import express from 'express';
-import asyncHandler from 'express-async-handler';
-
+import express from 'express'
+const router = express.Router()
 import {
   getProducts,
   getProductById,
-} from '../controllers/productController.js';
-const router = express.Router();
+} from '../controllers/productController.js'
 
-router.route('/').get(getProducts);
+router.route('/').get(getProducts)
+router.route('/:id').get(getProductById)
 
-router.route('/:id').get(getProductById);
-
-export default router;
+export default router
